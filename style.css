@@ -1,7 +1,7 @@
- /* =========================================
+/* =========================================
    GUSTASHOP.COM — style.css
+
    Estilo base reutilizable para TODAS las páginas.
-   Combina este archivo con las demás páginas al final.
    ========================================= */
 
 :root {
@@ -41,6 +41,11 @@ img {
 
 a {
     color: inherit;
+}
+
+/* Utilidad: bloquear scroll (aviso y menú abiertos) */
+body.no-scroll {
+    overflow: hidden;
 }
 
 /* ---------- HEADER ---------- */
@@ -550,5 +555,469 @@ body > a[href="negocios.html"] button:hover {
     .site-footer__creator {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ============================================================
+   FICHAS DE TARJETAS AMD, LAPTOPS GAMING Y LAPTOPS + SUS CATÁLOGOS
+   - Catálogos: <body class="amd-catalog"> o <body class="laptops-catalog">
+     (laptopsgaming.html y laptops.html usan laptops-catalog)
+   - Fichas: se detectan por su enlace "Regresar" a AmdGraphics.html,
+     laptopsgaming.html o laptops.html (no afecta a las demás páginas).
+   - La imagen de la ficha puede llevar class="img-AMD" o "img-laptop".
+   ============================================================ */
+
+/* ---------- Base ---------- */
+
+body.amd-catalog,
+body.laptops-catalog {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) {
+    max-width: 880px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ---------- Botón "Regresar" de las fichas ---------- */
+
+body > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) {
+    display: inline-block;
+    margin-bottom: 32px;
+    text-decoration: none;
+}
+
+body > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) button,
+body > a.product-page__back {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+body > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) button:hover,
+body > a.product-page__back:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ---------- Ficha de producto ---------- */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > p {
+    color: var(--text-muted);
+    max-width: 66ch;
+    margin-bottom: 1.25rem;
+}
+
+/* Títulos de sección: DESCRIPCION y ESPECIFICACIONES */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) + p,
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-laptop) + p {
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin: 2rem 0 0.6rem;
+}
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) + p {
+    margin-top: 0;
+}
+
+/* Imagen del producto */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-laptop) {
+    width: 100%;
+    max-width: 340px;
+    max-height: 340px;
+    object-fit: contain;
+    margin: 1.5rem auto;
+    padding: 2rem;
+    background: var(--card-media-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+/* Especificaciones */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul {
+    list-style: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+    color: var(--text);
+}
+
+/* Precio: el párrafo justo después de la lista */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p {
+    color: var(--text);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin: 1.5rem 0 0.5rem;
+}
+
+/* Nota: después del precio o después del botón de pedido */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p + p,
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > .product-page__cta + p {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+    margin-top: 1.25rem;
+}
+
+/* Botón "Realizar pedido" (la base está en .product-page__cta) */
+
+body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > .product-page__cta {
+    max-width: 320px;
+    margin: 1rem 0 1.5rem;
+}
+
+/* ---------- Catálogos (AmdGraphics.html, laptopsgaming.html y laptops.html) ---------- */
+
+:is(.amd-catalog, .laptops-catalog) .series {
+    max-width: var(--max-width);
+    margin: 0 auto 3.5rem;
+}
+
+:is(.amd-catalog, .laptops-catalog) .series-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+:is(.amd-catalog, .laptops-catalog) .product-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+:is(.amd-catalog, .laptops-catalog) .product-card .media {
+    min-height: 250px;
+}
+
+/* ---------- Responsive AMD / Laptops ---------- */
+
+@media (max-width: 600px) {
+    body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p {
+        font-size: 1.5rem;
+    }
+
+    body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-laptop) {
+        padding: 1.25rem;
+    }
+
+    :is(.amd-catalog, .laptops-catalog) .product-card h3 {
+        font-size: 1rem;
+    }
+}
+
+/* ---------- Botón "Regresar" de las fichas de procesadores ---------- */
+
+body > a[href="procesadores.html"] button {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+body > a[href="procesadores.html"] button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ============================================================
+   Aviso de página de demostración (index.html)
+   ============================================================ */
+
+.demo-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(14, 14, 18, 0.88);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    animation: demoFade 0.5s ease both;
+}
+
+/* Al cerrar: se quita la animación de entrada para que no mantenga el aviso visible */
+.demo-overlay.is-hidden {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Aviso ya visto en esta visita: no se dibuja nunca (evita el parpadeo) */
+.demo-visto .demo-overlay {
+    display: none !important;
+    animation: none !important;
+}
+
+.demo-box {
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card-hover), 0 0 0 1px rgba(77, 163, 255, 0.2);
+    padding: 2.2rem 1.8rem 1.8rem;
+    animation: demoPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.demo-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 2rem;
+    font-weight: 700;
+    animation: demoPulse 2s ease-in-out 0.9s infinite;
+}
+
+.demo-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.demo-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.6rem;
+}
+
+.demo-box p b {
+    color: var(--text);
+}
+
+.demo-btn {
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.demo-btn:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+.demo-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@keyframes demoFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes demoPop {
+    from { opacity: 0; transform: translateY(30px) scale(0.92); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes demoPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(77, 163, 255, 0.45); }
+    50%      { box-shadow: 0 0 0 14px rgba(77, 163, 255, 0); }
+}
+
+/* ============================================================
+   Menú hamburguesa
+   ============================================================ */
+
+.menu-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 960;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color var(--transition);
+}
+
+.menu-toggle:hover {
+    border-color: var(--accent);
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Las 3 rayas se convierten en una X */
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 940;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+.menu-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 950;
+    width: min(320px, 85vw);
+    padding: 84px 20px 24px;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition), visibility var(--transition);
+}
+
+.side-menu.is-open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.side-menu__title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.side-menu ul {
+    list-style: none;
+    display: grid;
+    gap: 6px;
+}
+
+.side-menu a {
+    display: block;
+    padding: 0.8rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.side-menu a:hover,
+.side-menu a:focus-visible {
+    background: var(--bg);
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+}
+
+.side-menu a[aria-current="page"] {
+    color: var(--accent);
+}
+
+/* Deja espacio al botón en el header (escritorio) */
+@media (min-width: 601px) {
+    .site-header {
+        padding-right: 60px;
+    }
+}
+
+/* ============================================================
+   Accesibilidad
+   ============================================================ */
+
+/* Foco visible para teclado */
+.product-card .actions a:focus-visible,
+.product-page__cta:focus-visible,
+body > a:focus-visible button {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* Respetar a quien desactiva las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
     }
 }

@@ -1,12 +1,72 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negocios</title>
+    <title>Negocios | GUSTECHRD</title>
+
+    <!-- Oculta el aviso si ya lo viste en esta visita, EXCEPTO al recargar (F5) -->
+    <script>
+        (function () {
+            try {
+                var visto = sessionStorage.getItem('demoVisto') === '1';
+
+                var recarga = false;
+                var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (nav) {
+                    recarga = nav.type === 'reload';
+                } else if (performance.navigation) {
+                    recarga = performance.navigation.type === 1;
+                }
+
+                if (visto && !recarga) {
+                    document.documentElement.classList.add('demo-visto');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- AVISO DE DEMOSTRACIÓN -->
+    <div class="demo-overlay" id="demoOverlay" role="dialog" aria-modal="true" aria-labelledby="demoTitle" aria-describedby="demoText">
+        <div class="demo-box">
+            <div class="demo-icon" aria-hidden="true">!</div>
+            <h2 id="demoTitle">Página de demostración</h2>
+            <p id="demoText">
+                Este sitio <b>no es oficial</b>. Es una demostración de cómo podría ser un
+                futuro negocio. Los productos, precios y datos de contacto son solo de ejemplo. cualquier consejo o comentario es bienvenido. Puedes contactarme en <a href="mailto:info@hanselygustavo@gmail.com">hanselygustavo@gmail.com</a> o en Discord: <a href="https://discord.gg/BCWVTdmDfM">igvstagg</a>.
+            </p>
+            <button type="button" class="demo-btn" id="demoClose">Entendido, continuar</button>
+        </div>
+    </div>
+
+    <!-- MENÚ HAMBURGUESA -->
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="sideMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <nav class="side-menu" id="sideMenu" aria-label="Menú principal">
+        <p class="side-menu__title">Apartados</p>
+        <ul>
+            <li><a href="index.html" aria-current="page">Inicio</a></li>
+            <li><a href="motherboards.html">Motherboards</a></li>
+            <li><a href="laptopsgaming.html">Laptops Gaming</a></li>
+            <li><a href="laptops.html">Laptops</a></li>
+            <li><a href="negocios.html">PCs</a></li>
+            <li><a href="graficas-nvidia.html">Gráficas Nvidia</a></li>
+            <li><a href="AmdGraphics.html">Gráficas AMD</a></li>
+            <li><a href="procesadores.html">Procesadores</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
     <header class="site-header">
         <img src="assets/logo.jpg" alt="Logo de negocios" class="logo">
         <div>
@@ -17,12 +77,6 @@
 
     <main class="grid">
 
-        <a href="motherboards.html" class="card">
-            <img src="assets/motherboards.webp" alt="apartado de motherboards">
-            <div class="card-overlay">
-                <span class="card-title">Motherboards</span>
-            </div>
-        </a>
 
         <a href="laptopsgaming.html" class="card">
             <img src="assets/laptops.webp" alt="apartado de laptops gaming">
@@ -46,7 +100,7 @@
         </a>
 
         <a href="graficas nvidia.html" class="card">
-            <img src="assets/graficas.webp" alt="apartado de Gráficas">
+            <img src="assets/graficas.webp" alt="apartado de Gráficas Nvidia">
             <div class="card-overlay">
                 <span class="card-title">Gráficas Nvidia</span>
             </div>
@@ -59,13 +113,13 @@
             </div>
         </a>
 
-
-          <a href="AmdGraphics.html" class="card">
-            <img src="assets/AMD.webp" alt="apartado de Gráficas">
+        <a href="AmdGraphics.html" class="card">
+            <img src="assets/AMD.webp" alt="apartado de Gráficas AMD">
             <div class="card-overlay">
                 <span class="card-title">Gráficas AMD</span>
             </div>
         </a>
+
     </main>
 
     <footer class="site-footer">
@@ -80,5 +134,6 @@
         </div>
     </footer>
 
+    <script src="js.js"></script>
 </body>
 </html>
