@@ -1,9 +1,9 @@
 /* =========================================
    GUSTASHOP.COM — style.css
-
+ 
    Estilo base reutilizable para TODAS las páginas.
    ========================================= */
-
+ 
 :root {
     --bg: #0e0e12;
     --bg-card: #1a1a20;
@@ -20,43 +20,43 @@
     --shadow-card-hover: 0 14px 30px rgba(0, 0, 0, 0.55);
     --max-width: 1200px;
 }
-
+ 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 body {
     background: var(--bg);
     color: var(--text);
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     padding: 40px 5vw;
 }
-
+ 
 img {
     max-width: 100%;
     display: block;
 }
-
+ 
 a {
     color: inherit;
 }
-
+ 
 /* Utilidad: bloquear scroll (aviso y menú abiertos) */
 body.no-scroll {
     overflow: hidden;
 }
-
+ 
 /* ---------- HEADER ---------- */
-
+ 
 .site-header {
     display: flex;
     align-items: center;
     gap: 24px;
     margin-bottom: 48px;
 }
-
+ 
 .logo,
 .site-header img {
     width: 90px;
@@ -65,27 +65,27 @@ body.no-scroll {
     object-fit: cover;
     border: 2px solid var(--accent);
 }
-
+ 
 .site-header h1 {
     font-size: 1.9rem;
     margin-bottom: 6px;
 }
-
+ 
 .site-header p {
     color: var(--text-muted);
     font-size: 0.95rem;
 }
-
+ 
 /* ---------- GRID DE TARJETAS (home) ---------- */
-
+ 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 28px;
 }
-
+ 
 /* ---------- TARJETA (CARD) — home ---------- */
-
+ 
 .card {
     position: relative;
     display: block;
@@ -98,7 +98,7 @@ body.no-scroll {
     transform: translateY(0) scale(1);
     transition: transform var(--transition), box-shadow var(--transition);
 }
-
+ 
 .card img {
     width: 100%;
     height: 100%;
@@ -106,7 +106,7 @@ body.no-scroll {
     display: block;
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter var(--transition);
 }
-
+ 
 .card-overlay {
     position: absolute;
     inset: 0;
@@ -124,7 +124,7 @@ body.no-scroll {
     transform: translateY(20px);
     transition: opacity var(--transition), transform var(--transition);
 }
-
+ 
 .card-title {
     font-size: 1.4rem;
     font-weight: 700;
@@ -133,7 +133,7 @@ body.no-scroll {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     position: relative;
 }
-
+ 
 .card-title::after {
     content: "";
     position: absolute;
@@ -144,45 +144,45 @@ body.no-scroll {
     background: var(--accent);
     transition: width 0.4s ease 0.1s;
 }
-
+ 
 .card:hover,
 .card:focus-visible {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-card-hover), 0 0 0 1px rgba(77, 163, 255, 0.25);
 }
-
+ 
 .card:hover img,
 .card:focus-visible img {
     transform: scale(1.08);
     filter: brightness(0.55) saturate(1.1);
 }
-
+ 
 .card:hover .card-overlay,
 .card:focus-visible .card-overlay {
     opacity: 1;
     transform: translateY(0);
 }
-
+ 
 .card:hover .card-title::after,
 .card:focus-visible .card-title::after {
     width: 100%;
 }
-
+ 
 .card:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
-
+ 
 /* ============================================================
    Botón "regresar" (negocios.html y páginas de producto)
    ============================================================ */
-
+ 
 body > a[href="index.html"],
 body > a[href="negocios.html"] {
     display: inline-block;
     margin-bottom: 32px;
 }
-
+ 
 body > a[href="index.html"] button,
 body > a[href="negocios.html"] button {
     font-family: inherit;
@@ -196,17 +196,17 @@ body > a[href="negocios.html"] button {
     cursor: pointer;
     transition: border-color var(--transition), color var(--transition);
 }
-
+ 
 body > a[href="index.html"] button:hover,
 body > a[href="negocios.html"] button:hover {
     border-color: var(--accent);
     color: var(--accent);
 }
-
+ 
 /* ============================================================
    Catálogo de productos (negocios.html)
    ============================================================ */
-
+ 
 .products-grid {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -214,7 +214,7 @@ body > a[href="negocios.html"] button:hover {
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 1.75rem;
 }
-
+ 
 .product-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -225,12 +225,12 @@ body > a[href="negocios.html"] button:hover {
     flex-direction: column;
     transition: transform var(--transition), box-shadow var(--transition);
 }
-
+ 
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
 }
-
+ 
 .product-card .media {
     background: var(--card-media-bg);
     padding: 1.5rem;
@@ -239,20 +239,20 @@ body > a[href="negocios.html"] button:hover {
     justify-content: center;
     border-bottom: 1px solid var(--border);
 }
-
+ 
 .product-card .media img {
     width: 200px;
     height: 200px;
     object-fit: contain;
 }
-
+ 
 .product-card .body {
     padding: 1.25rem 1.25rem 1.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-
+ 
 .product-card .eyebrow {
     font-size: 0.72rem;
     font-weight: 700;
@@ -260,13 +260,13 @@ body > a[href="negocios.html"] button:hover {
     color: var(--accent);
     margin-bottom: 0.35rem;
 }
-
+ 
 .product-card .description {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
-
+ 
 .product-card .specs {
     list-style: none;
     margin-bottom: 1rem;
@@ -276,43 +276,43 @@ body > a[href="negocios.html"] button:hover {
     display: grid;
     gap: 0.4rem;
 }
-
+ 
 .product-card .specs li {
     font-size: 0.85rem;
     color: var(--text);
     display: flex;
     gap: 0.4rem;
 }
-
+ 
 .product-card .specs li b {
     margin-left: auto;
     color: var(--text);
 }
-
+ 
 .product-card .price-row {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 1.1rem;
 }
-
+ 
 .product-card .price-label {
     font-size: 0.8rem;
     color: var(--text-muted);
 }
-
+ 
 .product-card .price {
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--text);
 }
-
+ 
 .product-card .actions {
     margin-top: auto;
     display: flex;
     gap: 0.6rem;
 }
-
+ 
 .product-card .actions a {
     flex: 1;
     text-align: center;
@@ -323,34 +323,34 @@ body > a[href="negocios.html"] button:hover {
     text-decoration: none;
     transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
-
+ 
 .product-card .actions a.read-more {
     border: 1px solid var(--border);
     color: var(--text);
     background: transparent;
 }
-
+ 
 .product-card .actions a.read-more:hover {
     border-color: var(--accent);
     color: var(--accent);
 }
-
+ 
 .product-card .actions a.order {
     border: 1px solid var(--accent);
     background: var(--accent);
     color: var(--white);
 }
-
+ 
 .product-card .actions a.order:hover {
     background: var(--accent-dark);
     border-color: var(--accent-dark);
 }
-
+ 
 /* ============================================================
    Página de producto individual
    (spec.html, specs.html, spoc.html, pcss.html, pcsss.html, pcssss.html)
    ============================================================ */
-
+ 
 .product-page {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -359,7 +359,7 @@ body > a[href="negocios.html"] button:hover {
     gap: 2.5rem;
     align-items: start;
 }
-
+ 
 .product-page__media {
     background: var(--card-media-bg);
     border: 1px solid var(--border);
@@ -371,13 +371,13 @@ body > a[href="negocios.html"] button:hover {
     position: sticky;
     top: 40px;
 }
-
+ 
 .product-page__media img {
     width: 100%;
     max-width: 300px;
     object-fit: contain;
 }
-
+ 
 .product-page__eyebrow {
     font-size: 0.78rem;
     font-weight: 700;
@@ -385,28 +385,28 @@ body > a[href="negocios.html"] button:hover {
     color: var(--accent);
     margin-bottom: 0.5rem;
 }
-
+ 
 .product-page__title {
     font-size: clamp(1.5rem, 2.6vw, 2.1rem);
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--text);
 }
-
+ 
 .product-page__description {
     color: var(--text-muted);
     font-size: 1rem;
     max-width: 62ch;
     margin-bottom: 1.75rem;
 }
-
+ 
 .product-page__specs {
     list-style: none;
     margin-bottom: 1.75rem;
     border-top: 1px solid var(--border);
     display: grid;
 }
-
+ 
 .product-page__specs li {
     display: flex;
     justify-content: space-between;
@@ -415,16 +415,16 @@ body > a[href="negocios.html"] button:hover {
     border-bottom: 1px solid var(--border);
     font-size: 0.92rem;
 }
-
+ 
 .product-page__specs li span {
     color: var(--text-muted);
 }
-
+ 
 .product-page__specs li b {
     color: var(--text);
     text-align: right;
 }
-
+ 
 .product-page__buybox {
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -432,7 +432,7 @@ body > a[href="negocios.html"] button:hover {
     padding: 1.5rem;
     max-width: 320px;
 }
-
+ 
 .product-page__price {
     font-size: 2rem;
     font-weight: 700;
@@ -440,7 +440,7 @@ body > a[href="negocios.html"] button:hover {
     display: block;
     margin-bottom: 1rem;
 }
-
+ 
 .product-page__cta {
     display: block;
     text-align: center;
@@ -454,23 +454,23 @@ body > a[href="negocios.html"] button:hover {
     text-decoration: none;
     transition: background var(--transition), border-color var(--transition);
 }
-
+ 
 .product-page__cta:hover {
     background: var(--accent-dark);
     border-color: var(--accent-dark);
 }
-
+ 
 /* ============================================================
    Footer del sitio (todas las páginas)
    ============================================================ */
-
+ 
 .site-footer {
     max-width: var(--max-width);
     margin: 64px auto 0;
     padding: 28px 1.5rem;
     border-top: 1px solid var(--border);
 }
-
+ 
 .site-footer__brand {
     font-size: 0.72rem;
     font-weight: 700;
@@ -478,14 +478,14 @@ body > a[href="negocios.html"] button:hover {
     color: var(--accent);
     margin-bottom: 14px;
 }
-
+ 
 .site-footer__creator {
     display: flex;
     align-items: center;
     gap: 14px;
     text-align: left;
 }
-
+ 
 .site-footer__avatar {
     width: 52px;
     height: 52px;
@@ -494,103 +494,107 @@ body > a[href="negocios.html"] button:hover {
     border: 2px solid var(--accent);
     flex-shrink: 0;
 }
-
+ 
 .site-footer__name {
     font-weight: 700;
     font-size: 1.05rem;
     color: var(--text);
     margin-bottom: 4px;
 }
-
+ 
 .site-footer__contact,
 .site-footer__discord {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 2px;
 }
-
+ 
 .site-footer__contact a {
     color: var(--accent);
     text-decoration: none;
 }
-
+ 
 .site-footer__contact a:hover {
     text-decoration: underline;
 }
-
+ 
 /* ---------- RESPONSIVE ---------- */
-
+ 
 @media (max-width: 780px) {
     .product-page {
         grid-template-columns: 1fr;
     }
-
+ 
     .product-page__media {
         position: static;
     }
-
+ 
     .product-page__buybox {
         max-width: none;
     }
 }
-
+ 
 @media (max-width: 600px) {
     .site-header {
         flex-direction: column;
         text-align: center;
     }
-
+ 
     body {
         padding: 24px 5vw;
     }
-
+ 
     .products-grid {
         grid-template-columns: 1fr;
     }
-
+ 
     .product-card .actions {
         flex-direction: column;
     }
-
+ 
     .site-footer__creator {
         flex-direction: column;
         text-align: center;
     }
 }
-
+ 
 /* ============================================================
-   FICHAS DE TARJETAS AMD, LAPTOPS GAMING Y LAPTOPS + SUS CATÁLOGOS
-   - Catálogos: <body class="amd-catalog"> o <body class="laptops-catalog">
+   FICHAS DE TARJETAS AMD, NVIDIA, LAPTOPS GAMING Y LAPTOPS + SUS CATÁLOGOS
+   - Catálogos: <body class="amd-catalog">, <body class="nvidia-catalog">
+     o <body class="laptops-catalog">
      (laptopsgaming.html y laptops.html usan laptops-catalog)
    - Fichas: se detectan por su enlace "Regresar" a AmdGraphics.html,
-     laptopsgaming.html o laptops.html (no afecta a las demás páginas).
-   - La imagen de la ficha puede llevar class="img-AMD" o "img-laptop".
+     graficasnvidia.html, laptopsgaming.html o laptops.html
+     (no afecta a las demás páginas).
+   - La imagen de la ficha puede llevar class="img-AMD", "img-nvidia"
+     o "img-laptop".
    ============================================================ */
-
+ 
 /* ---------- Base ---------- */
-
+ 
 body.amd-catalog,
+body.nvidia-catalog,
 body.laptops-catalog {
     max-width: var(--max-width);
     margin: 0 auto;
     line-height: 1.6;
 }
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) {
     max-width: 880px;
     margin: 0 auto;
     line-height: 1.6;
 }
-
+ 
 /* ---------- Botón "Regresar" de las fichas ---------- */
-
-body > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) {
+ 
+body > :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) {
     display: inline-block;
     margin-bottom: 32px;
     text-decoration: none;
 }
-
-body > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) button,
+ 
+body > :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) button,
 body > a.product-page__back {
     display: inline-block;
     font-family: inherit;
@@ -605,37 +609,37 @@ body > a.product-page__back {
     text-decoration: none;
     transition: border-color var(--transition), color var(--transition);
 }
-
-body > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) button:hover,
+ 
+body > :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) button:hover,
 body > a.product-page__back:hover {
     border-color: var(--accent);
     color: var(--accent);
 }
-
+ 
 /* ---------- Ficha de producto ---------- */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > p {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > p {
     color: var(--text-muted);
     max-width: 66ch;
     margin-bottom: 1.25rem;
 }
-
+ 
 /* Títulos de sección: DESCRIPCION y ESPECIFICACIONES */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) + p,
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-laptop) + p {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) + p,
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-nvidia, img.img-laptop) + p {
     color: var(--accent);
     font-size: 0.95rem;
     margin: 2rem 0 0.6rem;
 }
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) + p {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"]) + p {
     margin-top: 0;
 }
-
+ 
 /* Imagen del producto */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-laptop) {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-nvidia, img.img-laptop) {
     width: 100%;
     max-width: 340px;
     max-height: 340px;
@@ -646,36 +650,36 @@ body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href=
     border: 1px solid var(--border);
     border-radius: var(--radius);
 }
-
+ 
 /* Especificaciones */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul {
     list-style: none;
     border-top: 1px solid var(--border);
     margin-bottom: 1.5rem;
 }
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul li {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul li {
     padding: 0.7rem 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.92rem;
     color: var(--text);
 }
-
+ 
 /* Precio: el párrafo justo después de la lista */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p {
     color: var(--text);
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: capitalize;
     margin: 1.5rem 0 0.5rem;
 }
-
+ 
 /* Nota: después del precio o después del botón de pedido */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p + p,
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > .product-page__cta + p {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p + p,
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > .product-page__cta + p {
     background: var(--bg-card);
     border-left: 3px solid var(--accent);
     border-radius: 0 8px 8px 0;
@@ -683,57 +687,57 @@ body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href=
     font-size: 0.9rem;
     margin-top: 1.25rem;
 }
-
+ 
 /* Botón "Realizar pedido" (la base está en .product-page__cta) */
-
-body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > .product-page__cta {
+ 
+body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > .product-page__cta {
     max-width: 320px;
     margin: 1rem 0 1.5rem;
 }
-
-/* ---------- Catálogos (AmdGraphics.html, laptopsgaming.html y laptops.html) ---------- */
-
-:is(.amd-catalog, .laptops-catalog) .series {
+ 
+/* ---------- Catálogos (AmdGraphics.html, graficasnvidia.html, laptopsgaming.html y laptops.html) ---------- */
+ 
+:is(.amd-catalog, .nvidia-catalog, .laptops-catalog) .series {
     max-width: var(--max-width);
     margin: 0 auto 3.5rem;
 }
-
-:is(.amd-catalog, .laptops-catalog) .series-title {
+ 
+:is(.amd-catalog, .nvidia-catalog, .laptops-catalog) .series-title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--border);
 }
-
-:is(.amd-catalog, .laptops-catalog) .product-card h3 {
+ 
+:is(.amd-catalog, .nvidia-catalog, .laptops-catalog) .product-card h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 1.25rem;
 }
-
-:is(.amd-catalog, .laptops-catalog) .product-card .media {
+ 
+:is(.amd-catalog, .nvidia-catalog, .laptops-catalog) .product-card .media {
     min-height: 250px;
 }
-
-/* ---------- Responsive AMD / Laptops ---------- */
-
+ 
+/* ---------- Responsive AMD / NVIDIA / Laptops ---------- */
+ 
 @media (max-width: 600px) {
-    body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p {
+    body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > ul + p {
         font-size: 1.5rem;
     }
-
-    body:has(> :is(a[href="AmdGraphics.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-laptop) {
+ 
+    body:has(> :is(a[href="AmdGraphics.html"], a[href="graficasnvidia.html"], a[href="laptopsgaming.html"], a[href="laptops.html"])) > :is(img.img-AMD, img.img-nvidia, img.img-laptop) {
         padding: 1.25rem;
     }
-
-    :is(.amd-catalog, .laptops-catalog) .product-card h3 {
+ 
+    :is(.amd-catalog, .nvidia-catalog, .laptops-catalog) .product-card h3 {
         font-size: 1rem;
     }
 }
-
+ 
 /* ---------- Botón "Regresar" de las fichas de procesadores ---------- */
-
+ 
 body > a[href="procesadores.html"] button {
     background: var(--bg);
     color: var(--text);
@@ -746,16 +750,16 @@ body > a[href="procesadores.html"] button {
     cursor: pointer;
     transition: border-color var(--transition), color var(--transition);
 }
-
+ 
 body > a[href="procesadores.html"] button:hover {
     border-color: var(--accent);
     color: var(--accent);
 }
-
+ 
 /* ============================================================
    Aviso de página de demostración (index.html)
    ============================================================ */
-
+ 
 .demo-overlay {
     position: fixed;
     inset: 0;
@@ -769,7 +773,7 @@ body > a[href="procesadores.html"] button:hover {
     backdrop-filter: blur(6px);
     animation: demoFade 0.5s ease both;
 }
-
+ 
 /* Al cerrar: se quita la animación de entrada para que no mantenga el aviso visible */
 .demo-overlay.is-hidden {
     animation: none;
@@ -778,13 +782,13 @@ body > a[href="procesadores.html"] button:hover {
     pointer-events: none;
     transition: opacity 0.4s ease, visibility 0.4s ease;
 }
-
+ 
 /* Aviso ya visto en esta visita: no se dibuja nunca (evita el parpadeo) */
 .demo-visto .demo-overlay {
     display: none !important;
     animation: none !important;
 }
-
+ 
 .demo-box {
     width: 100%;
     max-width: 440px;
@@ -796,7 +800,7 @@ body > a[href="procesadores.html"] button:hover {
     padding: 2.2rem 1.8rem 1.8rem;
     animation: demoPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
-
+ 
 .demo-icon {
     width: 64px;
     height: 64px;
@@ -811,23 +815,23 @@ body > a[href="procesadores.html"] button:hover {
     font-weight: 700;
     animation: demoPulse 2s ease-in-out 0.9s infinite;
 }
-
+ 
 .demo-box h2 {
     font-size: 1.5rem;
     margin-bottom: 0.8rem;
 }
-
+ 
 .demo-box p {
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1.6rem;
 }
-
+ 
 .demo-box p b {
     color: var(--text);
 }
-
+ 
 .demo-btn {
     font-family: inherit;
     font-size: 0.95rem;
@@ -840,36 +844,36 @@ body > a[href="procesadores.html"] button:hover {
     cursor: pointer;
     transition: background var(--transition), border-color var(--transition);
 }
-
+ 
 .demo-btn:hover {
     background: var(--accent-dark);
     border-color: var(--accent-dark);
 }
-
+ 
 .demo-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
-
+ 
 @keyframes demoFade {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
+ 
 @keyframes demoPop {
     from { opacity: 0; transform: translateY(30px) scale(0.92); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
-
+ 
 @keyframes demoPulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(77, 163, 255, 0.45); }
     50%      { box-shadow: 0 0 0 14px rgba(77, 163, 255, 0); }
 }
-
+ 
 /* ============================================================
    Menú hamburguesa
    ============================================================ */
-
+ 
 .menu-toggle {
     position: fixed;
     top: 16px;
@@ -888,16 +892,16 @@ body > a[href="procesadores.html"] button:hover {
     cursor: pointer;
     transition: border-color var(--transition);
 }
-
+ 
 .menu-toggle:hover {
     border-color: var(--accent);
 }
-
+ 
 .menu-toggle:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
-
+ 
 .menu-toggle span {
     display: block;
     width: 22px;
@@ -906,20 +910,20 @@ body > a[href="procesadores.html"] button:hover {
     border-radius: 2px;
     transition: transform var(--transition), opacity var(--transition);
 }
-
+ 
 /* Las 3 rayas se convierten en una X */
 .menu-toggle[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
-
+ 
 .menu-toggle[aria-expanded="true"] span:nth-child(2) {
     opacity: 0;
 }
-
+ 
 .menu-toggle[aria-expanded="true"] span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
-
+ 
 .menu-backdrop {
     position: fixed;
     inset: 0;
@@ -929,12 +933,12 @@ body > a[href="procesadores.html"] button:hover {
     visibility: hidden;
     transition: opacity var(--transition), visibility var(--transition);
 }
-
+ 
 .menu-backdrop.is-open {
     opacity: 1;
     visibility: visible;
 }
-
+ 
 .side-menu {
     position: fixed;
     top: 0;
@@ -951,24 +955,24 @@ body > a[href="procesadores.html"] button:hover {
     visibility: hidden;
     transition: transform var(--transition), visibility var(--transition);
 }
-
+ 
 .side-menu.is-open {
     transform: translateX(0);
     visibility: visible;
 }
-
+ 
 .side-menu__title {
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 12px;
 }
-
+ 
 .side-menu ul {
     list-style: none;
     display: grid;
     gap: 6px;
 }
-
+ 
 .side-menu a {
     display: block;
     padding: 0.8rem 1rem;
@@ -980,7 +984,7 @@ body > a[href="procesadores.html"] button:hover {
     color: var(--text);
     transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
-
+ 
 .side-menu a:hover,
 .side-menu a:focus-visible {
     background: var(--bg);
@@ -988,22 +992,22 @@ body > a[href="procesadores.html"] button:hover {
     color: var(--accent);
     outline: none;
 }
-
+ 
 .side-menu a[aria-current="page"] {
     color: var(--accent);
 }
-
+ 
 /* Deja espacio al botón en el header (escritorio) */
 @media (min-width: 601px) {
     .site-header {
         padding-right: 60px;
     }
 }
-
+ 
 /* ============================================================
    Accesibilidad
    ============================================================ */
-
+ 
 /* Foco visible para teclado */
 .product-card .actions a:focus-visible,
 .product-page__cta:focus-visible,
@@ -1011,7 +1015,7 @@ body > a:focus-visible button {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
-
+ 
 /* Respetar a quien desactiva las animaciones */
 @media (prefers-reduced-motion: reduce) {
     *,
